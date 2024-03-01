@@ -42,6 +42,8 @@ body {
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
+    border: 2px solid #D2691E; /* Chocolate color border */
+    border-radius: 5px;
 }
 
 .btn {
@@ -62,4 +64,6 @@ body {
 .result {
     margin-top: 20px;
     font-size: 18px;
+    color: #00FF00; /* Green color for correct guess */
 }
+
