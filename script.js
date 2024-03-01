@@ -1,66 +1,24 @@
-body {
-    font-family: 'Press Start 2P', cursive, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #8B4513; /* Dark brown background */
-}
+function guessImage() {
+    var images = document.getElementsByClassName("image");
+    var randomNumber = Math.floor(Math.random() * images.length);
+    var selectedImage = images[randomNumber];
+    var guessInput = document.getElementById("guessInput").value.trim();
 
-.container {
-    text-align: center;
-    margin-top: 50px;
-    color: #fff; /* White text color */
-}
+    if (guessInput !== "") {
+        var selectedImageId = parseInt(selectedImage.id.substr(5));
 
-.heading {
-    font-size: 36px;
-    color: #FFF8DC; /* Antique white color */
-}
+        if (parseInt(guessInput) === selectedImageId) {
+            // Highlight the selected image by adding blue margins
+            selectedImage.style.margin = "20px";
+            selectedImage.style.border = "none";
+            selectedImage.style.boxShadow = "0 0 10px 5px #0000FF"; // Blue box shadow for correct guess
+            document.getElementById("result").innerText = "Congratulations! You guessed correctly!";
+        } else {
+            // Remove styles from previously selected image (if any)
+            selectedImage.style.margin = "";
+            selectedImage.style.boxShadow = "none";
 
-.images-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+            document.getElementById("result").innerText = "Sorry, your guess was incorrect. The correct image was: " + selectedImage.querySelector("p").innerText;
+        }
+    }
 }
-
-.image {
-    margin: 10px;
-    cursor: pointer;
-}
-
-.image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-}
-
-.guess-container {
-    margin-top: 20px;
-}
-
-#guessInput {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #D2691E; /* Chocolate color */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-}
-
-.btn:hover {
-    background-color: #8B4513; /* Darker chocolate color on hover */
-}
-
-.result {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
