@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability Pictopia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Importing game-oriented font -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Probability Pictopia</h1>
+        <div class="images-container">
+            <div class="image" id="image1">
+                <img src="assets\tom-and-jerry.jpg" alt="Tom and Jerry">
+                <p>1. Tom and Jerry</p>
+            </div>
+            <div class="image" id="image2">
+                <img src="assets\iron-man--playing-the-game-of-dice (1).jpeg" alt="Iron Man">
+                <p>2. Iron Man</p>
+            </div>
+            <div class="image" id="image3">
+                <img src="assets\google-maps-result-from-park-to-bakery--with-traffic-and-paths-shownmake-it-look-like-the-app-res.jpeg" alt="Google Maps (Bakery)">
+                <p>3. Google Maps (Bakery)</p>
+            </div>
+            <div class="image" id="image4">
+                <img src="assets\a-rainy-day.jpeg" alt="Rainy Day">
+                <p>4. Rainy Day</p>
+            </div>
+            <div class="image" id="image5">
+                <img src="assets\a--gym-.jpeg" alt="Gym">
+                <p>5. Gym</p>
+            </div>
+            <div class="image" id="image6">
+                <img src="assets\an-alarm-clock-of-a-rabbit.jpeg" alt="Alarm Clock">
+                <p>6. Alarm Clock</p>
+            </div>
+        </div>
+        <div class="guess-container">
+            <input type="number" id="guessInput" placeholder="Enter your guess (1-6)">
+            <button onclick="guessImage()" class="btn">Guess Image</button>
+        </div>
+        <p id="result" class="result"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
