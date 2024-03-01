@@ -1,3 +1,4 @@
+
 function guessImage() {
     var images = document.getElementsByClassName("image");
     var randomNumber = Math.floor(Math.random() * images.length);
@@ -6,19 +7,30 @@ function guessImage() {
 
     if (guessInput !== "") {
         var selectedImageId = parseInt(selectedImage.id.substr(5));
+        var guessedImage = document.getElementById("image" + guessInput);
 
-        if (parseInt(guessInput) === selectedImageId) {
-            // Highlight the selected image by adding blue margins
-            selectedImage.style.margin = "20px";
-            selectedImage.style.border = "none";
-            selectedImage.style.boxShadow = "0 0 10px 5px #0000FF"; // Blue box shadow for correct guess
-            document.getElementById("result").innerText = "Congratulations! You guessed correctly!";
+        // Remove border from previously highlighted images (if any)
+        var highlightedImages = document.querySelectorAll(".image");
+        highlightedImages.forEach(function(image) {
+            image.style.border = "none";
+        });
+
+        // Highlight the randomly selected image in blue
+        selectedImage.style.border = "3px solid #0000FF"; // Blue border
+
+        // Highlight the guessed image in red
+        if (guessedImage) {
+            guessedImage.style.border = "3px solid #FF0000"; // Red border
+
+            // If guessed correctly, highlight both images in green
+            if (parseInt(guessInput) === selectedImageId) {
+                selectedImage.style.border = "3px solid #00FF00"; // Green border
+                document.getElementById("result").innerText = "Congratulations! You guessed correctly!";
+            } else {
+                document.getElementById("result").innerText = "Sorry, your guess was incorrect. The correct image was: " + selectedImage.querySelector("p").innerText;
+            }
         } else {
-            // Remove styles from previously selected image (if any)
-            selectedImage.style.margin = "";
-            selectedImage.style.boxShadow = "none";
-
-            document.getElementById("result").innerText = "Sorry, your guess was incorrect. The correct image was: " + selectedImage.querySelector("p").innerText;
+            document.getElementById("result").innerText = "Please enter a valid guess (1-6).";
         }
     }
 }
