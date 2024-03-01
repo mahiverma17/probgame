@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive, Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #8B4513; /* Dark brown background */
@@ -12,7 +12,6 @@ body {
 }
 
 .heading {
-    font-family: 'Press Start 2P', cursive; /* Game-oriented font */
     font-size: 36px;
     color: #FFF8DC; /* Antique white color */
 }
